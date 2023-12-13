@@ -8,12 +8,10 @@ WORKDIR /app
 COPY include include
 COPY src src
 COPY Makefile .
+COPY packages.txt .
 
 # Install necessary packages and dependencies
-RUN apt-get update && apt-get install -y \
-    g++ \
-    make \
-    libgmp-dev
+RUN apt-get update && xargs apt-get install -y < packages.txt
 
 # Compile the project
 RUN make squares_counter
