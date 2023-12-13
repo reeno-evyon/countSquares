@@ -1,4 +1,3 @@
-#include <iostream>
 #include "squares_counter.h"
 
 // Default constructor definition
@@ -20,9 +19,9 @@ void SquaresCounter::setSquareSize(const std::string& str){
 }
 
 void SquaresCounter::calculateTotalSquares(){
-	// 1^2 + 2^2 + 3^2 + ....+ n^2 = 
     	// Logic to count the number of squares
-    	// Formula for Sum of squares of n natural numbers: [n(n+1)(2n+1)] / 6.
+	// Total squares = 1^2 + 2^2 + 3^2 + ....+ n^2
+    	// Formula for Sum of squares of first n natural numbers: [n(n+1)(2n+1)] / 6.
 	totalSquares = (n*(n+1)*((2*n)+1))/6;
 }
 
