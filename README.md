@@ -36,12 +36,13 @@ Browse through the source code to know more about how GMP library is used here t
 
 
 ## Building and running:
-This solution is self contained and can be build directly using the make command. 
+All the packages requied to build the source code is listed in `packages.txt`. If required, install them and then build this project directly using the make command. 
 
 Steps to follow:
 ```
 gh repo clone reeno-evyon/countSquares
 cd countSquares
+xargs sudo apt-get install -y < packages.txt
 make all
 bin/squares_counter
 ```
