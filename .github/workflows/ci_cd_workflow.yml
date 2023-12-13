@@ -1,6 +1,9 @@
-name: CI CD Actions
+name: CI/CD Actions
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   test:
