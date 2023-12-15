@@ -8,6 +8,7 @@ class UITest : public testing::Test {
 protected:
 	std::stringstream input_stream, output_stream, cerr_stream;
 	std::streambuf *original_cin, *original_cout, *original_cerr;
+	std::string expected_error = "Exception caught: Invalid input. This only accepts natural numbers (1, 2, 3, ...)\n";
 	void SetUp(){
 		// Redirect cin to input_stream
 		original_cin = std::cin.rdbuf();
@@ -56,7 +57,6 @@ TEST_F(UITest, Check_invalid_input) {
 	getInputAndCalculate();
 
 	// Verify error
-	std::string expected_error = "Exception caught: Non-numeric value is not supported\n";
 	ASSERT_STREQ(cerr_stream.str().c_str(), expected_error.c_str());
 }
 
@@ -68,6 +68,15 @@ TEST_F(UITest, Check_decimal_input) {
 	getInputAndCalculate();
 
 	// Verify error
-	std::string expected_error = "Exception caught: Non-numeric value is not supported\n";
+	ASSERT_STREQ(cerr_stream.str().c_str(), expected_error.c_str());
+}
+
+TEST_F(UITest, Check_negative_input) {
+	// The current implementation doesn't support input with decimal
+	input_stream << "-1\n"; 
+
+	getInputAndCalculate();
+
+	// Verify error
 	ASSERT_STREQ(cerr_stream.str().c_str(), expected_error.c_str());
 }

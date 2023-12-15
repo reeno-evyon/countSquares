@@ -14,7 +14,7 @@ void SquaresCounter::setSquareSize(const std::string& str){
 		// Change the parameters to default values
 		n = 0;
 		totalSquares = 0;
-		throw std::invalid_argument("Non-numeric value is not supported");
+		throw std::invalid_argument("Invalid input. This only accepts natural numbers (1, 2, 3, ...)");
 	}
 }
 

@@ -33,6 +33,10 @@ TEST_F(SquaresCounterTest, Count_n_3) {
 	ASSERT_EQ(squaresCounterTestObj->getTotalSquares(), 14);
 }
 
+TEST_F(SquaresCounterTest, Negative_number) {
+	EXPECT_THROW(squaresCounterTestObj->setSquareSize(""), std::invalid_argument);
+}
+
 TEST_F(SquaresCounterTest, Empty_input) {
 	EXPECT_THROW(squaresCounterTestObj->setSquareSize(""), std::invalid_argument);
 }
